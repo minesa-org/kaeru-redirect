@@ -3,28 +3,53 @@ import { config } from "dotenv";
 config();
 
 const url = `https://discord.com/api/v10/applications/${process.env.CLIENT_ID}/role-connections/metadata`;
-// supported types: number_lt=1, number_gt=2, number_eq=3, number_neq=4, datetime_lt=5, datetime_gt=6, boolean_eq=7, boolean_neq=8
+
 const body = [
-    {
-        key: "exp_level",
-        name: "EXP reached.",
-        description: "You must reach this amount of EXP to claim this role.",
-        type: 2,
-    },
+  {
+    key: "is_dev",
+    name: "engineer",
+    description: "A role for developers. Claimable by game devs, website devs, and security managers.",
+    type: 7, // boolean_eq
+  },
+  {
+    key: "is_mod",
+    name: "enforcer",
+    description: "A role for moderators. Claimable by users who moderate content.",
+    type: 7, // boolean_eq
+  },
+  {
+    key: "is_ads",
+    name: "strategist",
+    description: "A role for advertisers. Claimable by users who manage ads or promotions.",
+    type: 7, // boolean_eq
+  },
+  {
+    key: "is_admin",
+    name: "director",
+    description: "A role for administrators. Claimable by users who have admin privileges.",
+    type: 7, // boolean_eq
+  },
+  {
+    key: "is_owner",
+    name: "founder",
+    description: "A role for owners. Claimable by users who are the owner of the project.",
+    type: 7, // boolean_eq
+  },
 ];
 
 const response = await fetch(url, {
-    method: "PUT",
-    body: JSON.stringify(body),
-    headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bot ${process.env.CLIENT_TOKEN}`,
-    },
+  method: "PUT",
+  body: JSON.stringify(body),
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bot ${process.env.CLIENT_TOKEN}`,
+  },
 });
+
 if (response.ok) {
-    const data = await response.json();
-    console.log("Metadata registered successfully:", data);
+  const data = await response.json();
+  console.log("✅ Metadata registered successfully:", data);
 } else {
-    const data = await response.text();
-    console.log("Error registering metadata:", data);
+  const data = await response.text();
+  console.error("❌ Error registering metadata:", data);
 }
