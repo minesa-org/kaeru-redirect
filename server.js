@@ -19,6 +19,7 @@ app.use(express.json());
 const allowedIDs = {
   is_staff: [
     "285118390031351809", // neo
+  ],
 };
 
 /**
