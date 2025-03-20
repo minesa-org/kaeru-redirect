@@ -17,28 +17,8 @@ app.use(express.json());
   Hardcoded allowed user IDs for each role.
 */
 const allowedIDs = {
-  is_dev: [
+  is_staff: [
     "285118390031351809", // neo
-    "896145574968061982", // tommy
-    "317751211614928898", // neutral
-    "688500455130529870", // benjamin
-    "1130994469433512078", // storm
-  ],
-  is_mod: [
-    "1250795695439614044", // Vithir
-    "1335641550364999773", // milk
-    "154939684881956864", // cheetoo
-    "542461975683399711", // Adrian
-  ],
-  is_ads: [
-    "154939684881956864", // cheetoo
-  ],
-  is_admin: [
-    "285118390031351809", // neo
-  ],
-  is_owner: [
-    "884896120986284033", // felas
-  ],
 };
 
 /**
