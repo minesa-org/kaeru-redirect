@@ -92,7 +92,7 @@ export async function pushMetadata(userId, tokens, metadata) {
   const accessToken = await getAccessToken(userId, tokens);
 
   const body = {
-    platform_name: "BlitzForge Studios",
+    platform_name: "Minesa™",
     platform_username: username,
     metadata,
   };
