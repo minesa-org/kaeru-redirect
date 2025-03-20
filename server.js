@@ -33,11 +33,7 @@ async function updateMetadata(userId) {
   }
 
   const metadata = {
-    is_dev: allowedIDs.is_dev.includes(userId),
-    is_mod: allowedIDs.is_mod.includes(userId),
-    is_ads: allowedIDs.is_ads.includes(userId),
-    is_admin: allowedIDs.is_admin.includes(userId),
-    is_owner: allowedIDs.is_owner.includes(userId),
+    is_staff: allowedIDs.is_staff.includes(userId),
   };
 
   console.log(`📡 Pushing metadata for ${userId}:`, metadata);
