@@ -111,6 +111,7 @@
 				<a
 					href="#"
 					class="header-link"
+					onclick="openModal('tosModal')"
 				>
 					Terms of Service
 					<svg
@@ -132,6 +133,7 @@
 				<a
 					href="#"
 					class="header-link"
+					onclick="openModal('privacyModal')"
 				>
 					Privacy Policy
 					<svg
@@ -225,5 +227,211 @@
 		<footer>
 			<div class="big-text">Kaeru</div>
 		</footer>
+
+		<!-- Terms of Service Modal -->
+		<div
+			id="tosModal"
+			class="modal"
+		>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>📑 Kaeru – Terms of Service (ToS)</h1>
+					<button
+						class="modal-close"
+						onclick="closeModal('tosModal')"
+					>
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<p class="muted">Last Updated: August 24, 2025</p>
+					<ol>
+						<li>
+							<strong>Acceptance of Terms</strong>
+							<p>
+								By using Kaeru ("the Bot"), you agree to these
+								Terms of Service. If you do not agree, you may
+								not use the Bot.
+							</p>
+						</li>
+						<li>
+							<strong>Eligibility</strong>
+							<p>
+								You must comply with Discord's Terms of Service
+								and Community Guidelines. You must be at least
+								13 years old (or the minimum age required in
+								your country).
+							</p>
+						</li>
+						<li>
+							<strong>Use of the Bot</strong>
+							<p>
+								Kaeru provides moderation, ticketing, and
+								AI-powered utility features. You agree not to
+								misuse the Bot, attempt to exploit
+								vulnerabilities, or use the Bot in violation of
+								Discord's rules. The Bot may restrict, block, or
+								remove your access if you violate these terms.
+							</p>
+						</li>
+						<li>
+							<strong>Disclaimer of Warranties</strong>
+							<p>
+								The Bot is provided "as is" without warranties
+								of any kind. We are not responsible for
+								downtime, data loss, or unexpected behavior.
+							</p>
+						</li>
+						<li>
+							<strong>Limitation of Liability</strong>
+							<p>
+								We are not liable for any damages, losses, or
+								consequences resulting from your use of the Bot.
+							</p>
+						</li>
+						<li>
+							<strong>Termination</strong>
+							<p>
+								We may suspend or terminate access to the Bot at
+								any time without notice if we believe you are
+								violating the Terms or harming the service.
+							</p>
+						</li>
+						<li>
+							<strong>Changes to Terms</strong>
+							<p>
+								We may update these Terms from time to time.
+								Continued use of the Bot means acceptance of the
+								updated Terms.
+							</p>
+						</li>
+					</ol>
+					<p class="muted">
+						If you have questions, please contact our support.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Privacy Policy Modal -->
+		<div
+			id="privacyModal"
+			class="modal"
+		>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>📑 Kaeru – Privacy Policy</h1>
+					<button
+						class="modal-close"
+						onclick="closeModal('privacyModal')"
+					>
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<p class="muted">Last Updated: August 24, 2025</p>
+					<ol>
+						<li>
+							<strong>Information We Collect</strong>
+							<p>
+								Kaeru may collect and process the following
+								data: Discord User Data (User ID, Username,
+								Avatar) Message Data (only when explicitly
+								required for moderation, ticketing, or AI
+								processing) Server Data (Guild ID, roles,
+								channel IDs for configuration) We do not sell,
+								trade, or share your data with third parties.
+							</p>
+						</li>
+						<li>
+							<strong>How We Use the Data</strong>
+							<p>
+								To provide core functionalities (moderation,
+								tickets, AI utilities) To improve performance
+								and security To comply with legal or Discord
+								requirements
+							</p>
+						</li>
+						<li>
+							<strong>Data Storage & Retention</strong>
+							<p>
+								Data is stored securely and only as long as
+								necessary for features. You may request deletion
+								of your data via our support server or contact.
+							</p>
+						</li>
+						<li>
+							<strong>Third-Party Services</strong>
+							<p>
+								Kaeru may use third-party APIs (e.g., Google
+								Generative AI). Use of these APIs is subject to
+								their respective privacy policies.
+							</p>
+						</li>
+						<li>
+							<strong>User Rights</strong>
+							<p>
+								You can request access to or deletion of your
+								stored data. You can opt-out by removing Kaeru
+								from your server.
+							</p>
+						</li>
+						<li>
+							<strong>Security</strong>
+							<p>
+								We implement reasonable measures to protect your
+								data, but we cannot guarantee 100% security.
+							</p>
+						</li>
+						<li>
+							<strong>Changes to this Policy</strong>
+							<p>
+								We may update this Privacy Policy from time to
+								time. Continued use of the Bot means acceptance
+								of the updated Policy.
+							</p>
+						</li>
+					</ol>
+					<p class="muted">
+						If you have questions about privacy, please contact our
+						support.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function openModal(modalId) {
+				const modal = document.getElementById(modalId);
+				modal.classList.add("show");
+				document.body.style.overflow = "hidden";
+			}
+
+			function closeModal(modalId) {
+				const modal = document.getElementById(modalId);
+				modal.classList.remove("show");
+				document.body.style.overflow = "auto";
+			}
+
+			window.onclick = function (event) {
+				const modals = document.querySelectorAll(".modal");
+				modals.forEach((modal) => {
+					if (event.target === modal) {
+						modal.classList.remove("show");
+						document.body.style.overflow = "auto";
+					}
+				});
+			};
+
+			document.addEventListener("keydown", function (event) {
+				if (event.key === "Escape") {
+					const openModal = document.querySelector(".modal.show");
+					if (openModal) {
+						openModal.classList.remove("show");
+						document.body.style.overflow = "auto";
+					}
+				}
+			});
+		</script>
 	</body>
 </html>
