@@ -125,7 +125,6 @@ main section {
 	width: 100%;
 }
 
-/* Main container for the image and text overlay */
 main section > div {
 	position: relative;
 	width: 580px;
@@ -133,7 +132,6 @@ main section > div {
 	scale: 0.8;
 }
 
-/* Text container positioned over the image */
 main section div[role="text"] {
 	position: absolute;
 	left: 180px;
