@@ -312,221 +312,64 @@ img.ellipses {
 	z-index: -1;
 }
 
-@media (max-width: 1024px) {
-	main {
-		gap: 2rem;
-	}
-
-	main section {
-		gap: 2rem;
-	}
-
-	main section > div {
-		width: 450px;
-		height: 280px;
-	}
-
-	main section .kaeru_mascot {
-		width: 240px;
-		height: 240px;
-	}
-
-	main section div[role="text"] {
-		left: 140px;
-		top: 160px;
-		width: 290px;
-		height: 100px;
-		padding: 20px;
-	}
-
-	main section div[role="text"] h1 {
-		font-size: 26px;
-		line-height: 30px;
-	}
-
-	main section div[role="text"] p {
-		font-size: 14px;
-		line-height: 18px;
-	}
-
-	main section .kaeru_sticker {
-		width: 8rem;
-		right: -1rem;
-	}
-
-	main section .trusted {
-		width: 8rem;
-		left: -2rem;
-	}
-
-	footer .big-text {
-		font-size: 8rem;
-		height: 6rem;
-	}
-}
-
 @media (max-width: 768px) {
-	header {
-		padding: 0.5rem 1rem;
+	header .header-spacer {
+		flex: 0;
 	}
-
-	.header-links {
-		gap: 1rem;
-	}
-
-	.header-link {
+	header .header-link {
 		font-size: 0.8rem;
 	}
+}
 
-	.header-center svg {
-		width: 50px;
-		height: 50px;
-	}
-
-	.header-center {
-		gap: 1.5rem;
-	}
-
-	main {
-		gap: 1.5rem;
-	}
-
-	main section {
-		flex-direction: column;
-		gap: 1.5rem;
-		position: relative;
-	}
-
-	main section > div {
-		width: 380px;
-		height: 220px;
-		margin: 0 auto;
-	}
-
-	main section .kaeru_mascot {
-		width: 200px;
-		height: 200px;
-	}
-
+@media (max-width: 600px) {
 	main section div[role="text"] {
-		left: 100px;
-		top: 120px;
-		width: 260px;
-		height: 90px;
-		padding: 15px;
-		transform: rotate(2deg);
+		left: 50px;
+		top: 200px;
+		transform: rotate(0deg);
 	}
-
-	main section div[role="text"] h1 {
-		font-size: 20px;
-		line-height: 24px;
+	main section .kaeru_mascot {
+		width: 300px;
+		left: 25%;
+		top: 0px;
 	}
-
-	main section div[role="text"] p {
-		font-size: 13px;
-		line-height: 16px;
-	}
-
 	main section .kaeru_sticker {
-		position: absolute;
+		width: 8rem;
 		right: -1rem;
 		top: 50%;
-		transform: translateY(-50%) rotate(10deg);
-		width: 6rem;
 	}
-
 	main section .trusted {
+		width: 8rem;
+		left: 0%;
+		top: 0%;
+		transform: rotate(-15deg) scale(0.8);
+	}
+	main section div[role="text"] {
+		height: auto;
+		padding: 1rem;
+	}
+	main section div[role="text"] h1 {
+		font-size: 2rem;
+		line-height: 2.5rem;
+	}
+	main section div[role="text"] p {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+
+	.ellipses {
 		position: absolute;
-		left: -1.5rem;
-		top: -1rem;
-		transform: rotate(-10deg);
-		width: 6rem;
-	}
-
-	button {
-		font-size: 1.2rem;
-		padding: 0.8rem 1.5rem;
-	}
-
-	footer .big-text {
-		font-size: 5rem;
-		height: 4rem;
+		top: 50%;
+		left: 0;
+		transform: translateY(50%);
+		width: 100%;
+		height: auto;
 	}
 }
 
-@media (max-width: 480px) {
-	header {
-		padding: 0.25rem 0.5rem;
-	}
-
-	.header-links {
-		gap: 0.75rem;
-	}
-
-	.header-link {
-		font-size: 0.75rem;
-	}
-
-	.header-center svg {
-		width: 40px;
-		height: 40px;
-	}
-
-	.header-center {
-		gap: 1rem;
-	}
-
-	main {
-		gap: 1rem;
-	}
-
-	main section > div {
-		width: 320px;
-		height: 180px;
-		margin: 0 auto;
-	}
-
+@media (max-width: 400px) {
 	main section .kaeru_mascot {
-		width: 160px;
-		height: 160px;
-	}
-
-	main section div[role="text"] {
-		left: 80px;
-		top: 90px;
-		width: 220px;
-		height: 80px;
-		padding: 12px;
-		transform: rotate(1deg);
-	}
-
-	main section div[role="text"] h1 {
-		font-size: 18px;
-		line-height: 20px;
-	}
-
-	main section div[role="text"] p {
-		font-size: 12px;
-		line-height: 15px;
-	}
-
-	main section .kaeru_sticker {
-		width: 5rem;
-		right: -0.5rem;
-	}
-
-	main section .trusted {
-		width: 5rem;
-		left: -1rem;
-	}
-
-	button {
-		font-size: 1rem;
-		padding: 0.7rem 1rem;
-	}
-
-	footer .big-text {
-		font-size: 3rem;
-		height: 2.5rem;
+		width: 250px;
+		left: 10%;
+		top: 0px;
 	}
 }
