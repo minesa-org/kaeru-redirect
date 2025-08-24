@@ -1,22 +1,39 @@
 {
-    "name": "nodejs",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "register": "node register.js",
-        "server": "node server.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "cookie-parser": "^1.4.6",
-        "dotenv": "^16.4.5",
-        "express": "^4.19.2",
-        "mongodb": "^6.13.0",
-        "node-fetch": "^3.3.2"
-    }
+  "name": "kaeru-redirect",
+  "version": "1.0.0",
+  "description": "Discord Linked Roles server for Kaeru bot system",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "register": "node register.js"
+  },
+  "keywords": [
+    "discord",
+    "linked-roles",
+    "oauth2",
+    "kaeru",
+    "redirect"
+  ],
+  "author": "Neodevils",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.17.0",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minesa-org/kaeru-redirect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/minesa-org/kaeru-redirect/issues"
+  },
+  "homepage": "https://github.com/minesa-org/kaeru-redirect#readme"
 }
