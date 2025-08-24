@@ -6,10 +6,553 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<link
-			rel="stylesheet"
-			href="style.css"
-		/>
+		<style>
+			:root {
+				/* Base Colors */
+				--primary-color: #b38d70;
+				--base-black: #292524;
+				--base-gray: #9e9894e6;
+
+				/* Leaf Colors */
+				--leaf-color-1: #fd9b62;
+				--leaf-color-2: #fdc562;
+
+				/* Backgrounds */
+				--background-body: #fff1e0;
+				--background-button: #2925240d;
+
+				/* Selection Color */
+				--selection-color: #2925241a;
+
+				/* Label */
+				--label-color: #1c191799;
+				--label-background: #1c191705;
+				--label-border: #1c191726;
+
+				/* Fonts */
+				--font-family: ui-sans-serif, system-ui, sans-serif,
+					"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+					"Noto Color Emoji";
+			}
+
+			::selection {
+				background: var(--selection-color);
+			}
+
+			::-webkit-scrollbar {
+				display: none;
+			}
+
+			::-webkit-scrollbar-track {
+				background: transparent;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			* {
+				::-webkit-scrollbar {
+					display: none;
+				}
+
+				::-webkit-scrollbar-track {
+					background: transparent;
+				}
+			}
+
+			html,
+			body {
+				height: 100vh;
+				overflow: hidden;
+			}
+
+			body {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				font-family: var(--font-family);
+				background: var(--background-body);
+				color: var(--base-black);
+			}
+
+			header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1rem 2rem;
+				width: 100%;
+			}
+
+			.header-links {
+				flex: 1;
+				display: flex;
+				gap: 1.5rem;
+				justify-content: end;
+			}
+
+			.header-link {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				font-size: 0.9rem;
+				font-weight: 500;
+				color: var(--base-black);
+				text-decoration: none;
+				opacity: 0.7;
+				transition: opacity 0.2s ease;
+			}
+
+			.header-link:hover {
+				opacity: 1;
+			}
+
+			.header-link svg {
+				width: 12px;
+				height: 12px;
+				transition: transform 0.2s ease;
+			}
+
+			.header-link:hover svg {
+				transform: translate(2px, -2px);
+			}
+
+			.header-center {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 2rem;
+				flex: 1;
+			}
+
+			.header-spacer {
+				flex: 1;
+			}
+
+			main {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 3rem;
+				flex: 1;
+				width: 100%;
+				padding: 0;
+			}
+
+			main section {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				max-width: 1200px;
+				width: 100%;
+			}
+
+			main section > div {
+				position: relative;
+				width: 580px;
+				height: 349px;
+				scale: 0.8;
+			}
+
+			main section div[role="text"] {
+				position: absolute;
+				left: 180px;
+				top: 300px;
+				background: #fff0de;
+				border: 1px solid #decab1;
+				box-shadow: 0px 97px 39px rgba(0, 0, 0, 0.01),
+					0px 54px 33px rgba(0, 0, 0, 0.05),
+					0px 24px 24px rgba(0, 0, 0, 0.09),
+					0px 6px 13px rgba(0, 0, 0, 0.1);
+				border-radius: 19px;
+				transform: rotate(4.01deg);
+				padding: 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 8px;
+				z-index: 3;
+			}
+
+			main section .kaeru_mascot {
+				position: absolute;
+				width: 400px;
+				left: 50px;
+				top: 0px;
+				object-fit: cover;
+			}
+
+			main section .kaeru_sticker {
+				position: absolute;
+				right: -2rem;
+				top: 50%;
+				transform: translateY(0%) translateX(0%) scale(0.7)
+					rotate(15deg);
+				width: 10rem;
+				height: auto;
+				z-index: 2;
+				transition: transform 0.3s ease;
+			}
+
+			main section .kaeru_sticker:hover {
+				transform: translateY(0%) translateX(0%) scale(0.55)
+					rotate(15deg);
+			}
+
+			main section .verified_icon {
+				width: 2.5rem;
+				height: auto;
+			}
+
+			main section .trusted {
+				position: absolute;
+				left: 0%;
+				top: 0%;
+				transform: rotate(-15deg) scale(0.8);
+				width: 10rem;
+				height: auto;
+				z-index: 2;
+				transition: transform 0.3s ease;
+			}
+
+			main section .trusted:hover {
+				transform: rotate(-25deg) scale(1);
+			}
+
+			main section div[role="text"] h1 {
+				width: 100%;
+				font-family: var(--font-family);
+				font-style: normal;
+				font-weight: 700;
+				font-size: 32px;
+				line-height: 36px;
+				letter-spacing: -0.025em;
+				color: var(--base-black);
+				margin: 0;
+				flex: none;
+				order: 0;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+
+			main section div[role="text"] h1 span {
+				background: linear-gradient(
+					90deg,
+					rgba(102, 91, 82, 0.9) 0%,
+					#ff980767 100%
+				);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			main section div[role="text"] p {
+				width: 100%;
+				font-family: var(--font-family);
+				font-style: normal;
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 20px;
+				letter-spacing: -0.025em;
+				color: #000000;
+				margin: 0;
+				flex: none;
+				order: 1;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+
+			button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+				padding: 1rem 2rem;
+				border: none;
+				border-radius: 1rem;
+				background: var(--background-button);
+				color: var(--base-black);
+				font-size: 1.5rem;
+				font-weight: 700;
+				cursor: pointer;
+			}
+
+			button sub {
+				background-color: var(--base-black);
+				border-radius: 6px;
+				font-weight: 700;
+				color: var(--background-body);
+				padding: 0.25rem 0.5rem;
+				font-size: 0.75rem;
+			}
+
+			button:hover .verified_background {
+				animation: spin 4s linear infinite;
+				transform-origin: center;
+				fill: rgba(251, 113, 133, 0.75);
+			}
+
+			@keyframes spin {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			footer {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				pointer-events: none;
+				z-index: 1;
+			}
+
+			footer .big-text {
+				position: absolute;
+				left: 50%;
+				bottom: 1%;
+				transform: translateX(-50%);
+				font-size: 12rem;
+				font-weight: 900;
+				color: transparent;
+				background: linear-gradient(
+					to bottom,
+					#b38d701a 50%,
+					#b38d7000
+				);
+				-webkit-background-clip: text;
+				background-clip: text;
+				pointer-events: none;
+				user-select: none;
+				overflow: hidden;
+				height: 8rem;
+			}
+
+			img.ellipses {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: auto;
+				pointer-events: none;
+				z-index: -1;
+			}
+
+			@media (max-width: 768px) {
+				header .header-spacer {
+					flex: 0;
+				}
+				header .header-link {
+					font-size: 0.8rem;
+				}
+			}
+
+			@media (max-width: 600px) {
+				main section div[role="text"] {
+					left: 50px;
+					top: 200px;
+					transform: rotate(0deg);
+				}
+				main section .kaeru_mascot {
+					width: 300px;
+					left: 25%;
+					top: 0px;
+				}
+				main section .kaeru_sticker {
+					width: 8rem;
+					right: -1rem;
+					top: 50%;
+				}
+				main section .trusted {
+					width: 8rem;
+					left: 0%;
+					top: 0%;
+					transform: rotate(-15deg) scale(0.8);
+				}
+				main section div[role="text"] {
+					height: auto;
+					padding: 1rem;
+				}
+				main section div[role="text"] h1 {
+					font-size: 2rem;
+					line-height: 2.5rem;
+				}
+				main section div[role="text"] p {
+					font-size: 1rem;
+					line-height: 1.5rem;
+				}
+
+				.ellipses {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(50%);
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			@media (max-width: 400px) {
+				main section .kaeru_mascot {
+					width: 250px;
+					left: 10%;
+					top: 0px;
+				}
+			}
+
+			.modal {
+				display: none;
+				position: fixed;
+				z-index: 1000;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				backdrop-filter: blur(4px);
+			}
+
+			.modal.show {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				animation: fadeIn 0.3s ease;
+			}
+
+			.modal-content {
+				background: var(--background-body);
+				border: 1px solid #decab1;
+				border-radius: 1rem;
+				box-shadow: 0px 97px 39px rgba(0, 0, 0, 0.01),
+					0px 54px 33px rgba(0, 0, 0, 0.05),
+					0px 24px 24px rgba(0, 0, 0, 0.09),
+					0px 6px 13px rgba(0, 0, 0, 0.1);
+				max-width: 800px;
+				max-height: 80vh;
+				width: 90%;
+				margin: 2rem;
+				position: relative;
+				animation: slideIn 0.3s ease;
+				overflow: hidden;
+			}
+
+			.modal-header {
+				padding: 2rem 2rem 1rem 2rem;
+				border-bottom: 1px solid #decab1;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.modal-header h1 {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: var(--base-black);
+				margin: 0;
+			}
+
+			.modal-close {
+				background: none;
+				border: none;
+				font-size: 1.5rem;
+				cursor: pointer;
+				color: var(--base-black);
+				opacity: 0.7;
+				transition: opacity 0.2s ease;
+				padding: 0.5rem;
+				border-radius: 0.5rem;
+			}
+
+			.modal-close:hover {
+				opacity: 1;
+				background: var(--background-button);
+			}
+
+			.modal-body {
+				padding: 2rem;
+				overflow-y: auto;
+				max-height: calc(80vh - 120px);
+			}
+
+			.modal-body .muted {
+				color: var(--base-gray);
+				font-size: 0.9rem;
+				margin-bottom: 2rem;
+			}
+
+			.modal-body ol {
+				list-style: decimal;
+				padding-left: 1.5rem;
+				margin-bottom: 2rem;
+			}
+
+			.modal-body li {
+				margin-bottom: 1.5rem;
+			}
+
+			.modal-body li strong {
+				font-weight: 700;
+				color: var(--base-black);
+				display: block;
+				margin-bottom: 0.5rem;
+			}
+
+			.modal-body li p {
+				line-height: 1.6;
+				color: var(--base-black);
+				margin: 0;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+
+			@keyframes slideIn {
+				from {
+					opacity: 0;
+					transform: translateY(-20px) scale(0.95);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+				}
+			}
+
+			@media (max-width: 768px) {
+				.modal-content {
+					width: 95%;
+					margin: 1rem;
+					max-height: 90vh;
+				}
+
+				.modal-header {
+					padding: 1.5rem 1.5rem 1rem 1.5rem;
+				}
+
+				.modal-header h1 {
+					font-size: 1.25rem;
+				}
+
+				.modal-body {
+					padding: 1.5rem;
+					max-height: calc(90vh - 100px);
+				}
+			}
+		</style>
 		<meta
 			name="theme-color"
 			content="#b38d70"
@@ -19,7 +562,7 @@
 	<body>
 		<img
 			class="ellipses"
-			src="./assets/ellipses.webp"
+			src="https://kaeru-redirect-cdn.onrender.com/ellipses.webp"
 			alt=""
 		/>
 		<header>
@@ -159,14 +702,14 @@
 			<section>
 				<img
 					class="trusted"
-					src="./assets/trusted.webp"
+					src="https://kaeru-redirect-cdn.onrender.com/trusted.webp"
 					alt="Kaeru is a trusted app on Discord and has been verified by Discord. 250+ Individual Discord users trust Kaeru with their data."
 				/>
 
 				<div>
 					<img
 						class="kaeru_mascot"
-						src="./assets/kaeru.webp"
+						src="https://kaeru-redirect-cdn.onrender.com/kaeru.webp"
 						alt="Kaeru"
 					/>
 
@@ -178,7 +721,7 @@
 
 				<img
 					class="kaeru_sticker"
-					src="./assets/kaeru_sticker.webp"
+					src="https://kaeru-redirect-cdn.onrender.com/kaeru_sticker.webp"
 					alt="Kaeru Sticker"
 				/>
 			</section>
